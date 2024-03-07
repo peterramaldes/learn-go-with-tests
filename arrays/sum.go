@@ -7,9 +7,13 @@ func Sum(numbers []int) (sum int) {
 	return
 }
 
-func SumAll(arr ...[]int) (sum []int) {
+func SumAllTails(arr ...[]int) (sums []int) {
 	for _, a := range arr {
-		sum = append(sum, Sum(a))
+		if len(a) == 0 {
+			sums = append(sums, 0)
+		} else {
+			sums = append(sums, Sum(a[1:]))
+		}
 	}
 	return
 }

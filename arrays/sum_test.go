@@ -16,14 +16,33 @@ func TestSum(t *testing.T) {
 	}
 }
 
-func TestSumAll(t *testing.T) {
-	n1 := []int{17, 28}
-	n2 := []int{69, 96}
+func TestSumTails(t *testing.T) {
 
-	got := SumAll(n1, n2)
-	want := []int{45, 165}
-	if !reflect.DeepEqual(got, want) {
-		arr := [][]int{n1, n2}
-		t.Errorf("got '%v' want '%v', array '%v'", got, want, arr)
+	checkSums := func(t testing.TB, got, want []int) {
+		t.Helper()
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got '%v' want '%v'", got, want)
+		}
 	}
+
+	t.Run("sum all the tails", func(t *testing.T) {
+		n1 := []int{1, 2, 3, 4}
+		n2 := []int{5, 6, 7, 8, 9}
+
+		got := SumAllTails(n1, n2)
+		want := []int{9, 30}
+
+		checkSums(t, got, want)
+	})
+
+	t.Run("passing an empty array", func(t *testing.T) {
+		n1 := []int{}
+		n2 := []int{3, 4, 5}
+
+		got := SumAllTails(n1, n2)
+		want := []int{0, 9}
+
+		checkSums(t, got, want)
+	})
+
 }
