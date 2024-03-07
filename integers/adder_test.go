@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func ExampleAdder() {
+func ExampleAdd() {
 	fmt.Println(Add(1, 6))
 	// Output: 7
 }
