@@ -2,4 +2,4 @@ module tddgo
 
 go 1.22.0
 
-require github.com/pkg/errors v0.9.1 // indirect
+require github.com/pkg/errors v0.9.1
